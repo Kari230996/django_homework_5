@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+</head>
+<body>
+    <h2>Product Detail</h2>
+    <ul>
+        <li><strong>Name: </strong>{{ product.name }}</li>
+        <li><strong>Description: </strong>{{ product.description }}</li>
+        <li><strong>Price: </strong>{{ product.price }}</li>
+        <li><strong>Quantity: </strong>{{ product.quantity }}</li>
+        <li><strong>Added Date: </strong>{{ product.added_date }}</li>
+    </ul>
+
+    {% if product.photo %}
+        <img src="{{ product.photo.url }}" alt="Product Photo">
+    {% else %}
+        <p>No photo available</p>
+    {% endif %}
+
+    <a href="{% url 'edit_product' product_id=product.pk %}">
+        <button>Edit Product</button>
+    </a>
+
+    <a href="{% url 'home' %}">
+        <button>Home</button>
+    </a>
+    
+</body>
+</html>
